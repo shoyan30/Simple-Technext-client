@@ -1,0 +1,18 @@
+.card-griding{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+   
+}
+
+@media only screen and (max-width: 920px) {
+    .card-griding {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+@media only screen and (max-width: 760px) {
+    .card-griding {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
