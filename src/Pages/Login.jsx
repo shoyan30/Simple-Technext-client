@@ -1,14 +1,18 @@
+/* eslint-disable no-unused-vars */
 // import React from 'react';
 
 // import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { AuthContext } from "./Provider/AuthProvider";
+import Navigation from "./Navigation";
 
 const Login = () => {
-    // const [error, setError] = useState('')
-    // const [success, setSucces] = useState('')
+    const [error, setError] = useState('')
+    
 
-    // const { signIn } = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
 
     const handleLogin = event => {
         event.preventDefault();
@@ -16,18 +20,18 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        // signIn(email, password)
-        //     .then(result => {
-        //         const loggedUser = result.user;
-        //         console.log(loggedUser);
-        //         form.reset();
-        //         setSucces('Login Successfull')
-        //         setError(' ')
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //         setError(error.message);
-        //     })
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+                alert('Login Successfull') 
+                setError(' ')
+            })
+            .catch(error => {
+                console.log(error)
+                alert(error.message);
+            })
 
         console.log(email, password);
     }
@@ -52,7 +56,7 @@ const Login = () => {
                     </Form.Group>
 
 
-                    <Button variant="secondary" type="submit">
+                    <Button  variant="secondary" type="submit">
                         Login
                     </Button>
 

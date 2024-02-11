@@ -27,7 +27,7 @@ const UserCard = ({ user }) => {
                 </Card.Body>
                 <Card.Footer>
                 
-                <Link to={`/seeDetails/${id}`}><button type="button" className="btn btn-warning">See More</button></Link>
+                <Link to={`/seeDetails/${id}`}><button type="button" className="btn btn-success">See More</button></Link>
                 </Card.Footer>
             </Card>
         </CardGroup>

@@ -1,21 +1,17 @@
-// import React from 'react';
-
 import { Outlet } from "react-router-dom";
-
 import Navigation from "../Pages/Navigation";
 import Users from "../Pages/Users/Users";
-import SingleUser from "../Pages/SingleUser/SingleUser";
-// import SingleUser from "../Pages/SingleUser/SingleUser";
-// import SearchUser from "../Pages/SearchUser";
+import SearchUser from "../Pages/SearchUser";
+import { useState } from "react";
 
 
 const Main = () => {
+    const [search, setSearch] = useState('');
     return (
         <div>
             <Navigation></Navigation>
-            {/* <SearchUser></SearchUser> */}
-            <SingleUser></SingleUser>
-            <Users></Users>          
+            <SearchUser setSearch={setSearch}></SearchUser>
+            <Users search={search}></Users>
             <Outlet></Outlet>
         </div>
     );

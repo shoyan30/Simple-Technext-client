@@ -1,30 +1,20 @@
+/* eslint-disable react/prop-types */
 // import React from 'react';
 
 import { Button, Container } from "react-bootstrap";
 
-const SearchUser = () => {
-    const handlesearch = event =>{
-        event.preventDefault();
-        const form = event.target;
-       const firstName = form.firstname.value;
-       const SecondtName = form.secondname.value;
-       
+const SearchUser = ({ setSearch }) => {
 
-       console.log(firstName, SecondtName);
+    const handleSearch = (e) => {
+        e.preventDefault();
+        setSearch(e.target.searchField.value);
     }
-
 
     return (
         <Container>
-            <form onSubmit={handlesearch}>
-                <h3>Search User</h3>
-                <input className="border mb-2 max-w-screen-lg" type="text" name="firstname" id="firstname" placeholder="First Name" /> <br />
-
-                <input className="border mb-2" type="text" name="secondname" id="secondname" placeholder="Second Name" /><br />
-
-                <Button className="mb-2" variant="primary" type="submit">
-                    Search
-                </Button>
+            <form onSubmit={handleSearch} className="w-full flex items-center space-x-2 my-2">
+                <input className="py-1 border border-gray-200 rounded-md flex-1 px-2" type="text" id="searchField" name="searchField" placeholder="Name" />
+                <Button type='submit' variant="success">Search</Button>
             </form>
         </Container>
     );
